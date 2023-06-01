@@ -22,6 +22,7 @@ type PreKey struct {
 	registrationID uint32
 	preKeyID       *prekey.ID
 	signedPreKeyID prekey.ID
+	kyberPayload   *KyberPayload
 	baseKey        curve.PublicKey
 	identityKey    identity.Key
 	message        *Signal

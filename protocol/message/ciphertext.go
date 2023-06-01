@@ -15,7 +15,9 @@ const (
 
 const (
 	// CiphertextVersion is the current version of ciphertext messages.
-	CiphertextVersion = 3
+	CiphertextVersion = 4
+	// CiphertextPreKyberVersion is the last ciphertext version prior to Kyber support.
+	CiphertextPreKyberVersion = 3
 	// SenderKeyVersion is the current version of sender-key messages.
 	SenderKeyVersion = 3
 )

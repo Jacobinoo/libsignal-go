@@ -54,3 +54,25 @@ func (i *inMemSignedStore) Store(_ context.Context, id ID, record *SignedPreKey)
 	i.signedPreKeys[id] = record
 	return nil
 }
+
+var _ KyberStore = (*inMemKyberStore)(nil)
+
+type inMemKyberStore struct {
+	kyberPreKeys map[ID]*KyberPreKey
+}
+
+func NewInMemKyberStore() KyberStore {
+	return &inMemKyberStore{
+		kyberPreKeys: make(map[ID]*KyberPreKey),
+	}
+}
+
+func (i *inMemKyberStore) Load(_ context.Context, id ID) (*KyberPreKey, bool, error) {
+	record, exists := i.kyberPreKeys[id]
+	return record, exists, nil
+}
+
+func (i *inMemKyberStore) Save(_ context.Context, id ID, preKey *KyberPreKey) error {
+	i.kyberPreKeys[id] = preKey
+	return nil
+}

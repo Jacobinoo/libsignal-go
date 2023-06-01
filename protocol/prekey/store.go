@@ -19,3 +19,8 @@ type SignedStore interface {
 	// Store stores the signed pre-key associated with the given ID in the store.
 	Store(ctx context.Context, id ID, record *SignedPreKey) error
 }
+
+type KyberStore interface {
+	Load(ctx context.Context, id ID) (*KyberPreKey, bool, error)
+	Store(ctx context.Context, id ID, preKey *KyberPreKey) error
+}

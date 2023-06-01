@@ -78,8 +78,8 @@ func NewSignalFromBytes(bytes []byte) (Ciphertext, error) {
 	}
 
 	version := bytes[0] >> 4
-	if int(version) != CiphertextVersion {
-		return nil, fmt.Errorf("unsupported message version: %d != %d", int(version), CiphertextVersion)
+	if int(version) < CiphertextPreKyberVersion {
+		return nil, fmt.Errorf("unsupported message version: %d < %d", int(version), CiphertextPreKyberVersion)
 	}
 
 	var message v1.SignalMessage

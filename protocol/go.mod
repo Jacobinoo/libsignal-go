@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	filippo.io/edwards25519 v1.0.0
+	github.com/cloudflare/circl v1.3.3
 	github.com/golang/glog v1.1.1
 	github.com/google/uuid v1.3.0
 	github.com/stretchr/testify v1.8.4
